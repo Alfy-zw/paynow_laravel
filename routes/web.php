@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\ProcessPaymentController;
 use Illuminate\Support\Facades\Route;
-
+use Paynow\Payments\Paynow;
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,5 +16,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('payment_form');
 });
+
+
+
+
+Route::get('/alfy/paynow/checkout',[ProcessPaymentController::class,'check_out'])->name('payment.process');
